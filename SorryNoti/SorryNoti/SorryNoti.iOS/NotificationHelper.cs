@@ -13,7 +13,7 @@ namespace SorryNoti.iOS
 {
     class NotificationHelper : INotification
     {
-        public async void CreateNotification(string title, string message)
+        public void CreateNotification(string title, string message)
         {
             new NotificationDelegate().RegisterNotification(title, message);
         }
