@@ -25,7 +25,7 @@ namespace SorryNoti.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
-            if (UIDevice.CurrentDevice.CheckSystemVersion(10,0))
+            if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
             {
                 UNUserNotificationCenter.Current.RequestAuthorization(
                     UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound,

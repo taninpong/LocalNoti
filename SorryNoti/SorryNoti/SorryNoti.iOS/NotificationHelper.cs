@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace SorryNoti.iOS
 {
-    class NotificationHelper : INotification
+    public class NotificationHelper : INotification
     {
         public void CreateNotification(string title, string message)
         {

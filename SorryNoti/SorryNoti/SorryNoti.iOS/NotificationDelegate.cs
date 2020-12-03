@@ -8,7 +8,7 @@ using UserNotifications;
 
 namespace SorryNoti.iOS
 {
-    class NotificationDelegate : UNUserNotificationCenterDelegate
+    public class NotificationDelegate : UNUserNotificationCenterDelegate
     {
         public NotificationDelegate()
         {
