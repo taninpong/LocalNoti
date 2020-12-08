@@ -39,13 +39,13 @@ namespace SorryNoti.Droid
                 intent.PutExtra(title, message);
                 var pendingIntent = PendingIntent.GetActivity(mContext, 0, intent, PendingIntentFlags.OneShot);
 
-                var sound = global::Android.Net.Uri.Parse("http://noproblo.dayjo.org/ZeldaSounds/LOZ/LOZ_Bomb_Blow.wav");
+                var sound = global::Android.Net.Uri.Parse(ContentResolver.SchemeAndroidResource + "://" + mContext.PackageName + "/" + Resource.Raw.notification);
                 // Creating an Audio Attribute
                 var alarmAttributes = new AudioAttributes.Builder()
                     .SetContentType(AudioContentType.Sonification)
                     .SetUsage(AudioUsageKind.Notification).Build();
 
-                mBuilder = new NotificationCompat.Builder(mContext);
+                mBuilder = new NotificationCompat.Builder(mContext, NOTIFICATION_CHANNEL_ID);
                 mBuilder.SetSmallIcon(Resource.Drawable.icon);
                 mBuilder.SetContentTitle(title)
                         .SetSound(sound)
@@ -64,16 +64,16 @@ namespace SorryNoti.Droid
 
                 NotificationManager notificationManager = mContext.GetSystemService(Context.NotificationService) as NotificationManager;
 
-                var a = global::Android.OS.Build.VERSION.SdkInt;
-                var b = global::Android.OS.BuildVersionCodes.O;
-                if ( a >= b)
+                var currentVersion = global::Android.OS.Build.VERSION.SdkInt;
+                var supportVersion = global::Android.OS.BuildVersionCodes.O;
+                if ( currentVersion >= supportVersion)
                 {
                     NotificationImportance importance = global::Android.App.NotificationImportance.High;
 
                     NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, title, importance);
                     notificationChannel.EnableLights(true);
                     notificationChannel.EnableVibration(true);
-                    //notificationChannel.SetSound(sound, alarmAttributes);
+                    notificationChannel.SetSound(sound, alarmAttributes);
                     notificationChannel.SetShowBadge(true);
                     notificationChannel.Importance = NotificationImportance.High;
                     notificationChannel.SetVibrationPattern(new long[] { 100, 200, 300, 400, 500, 400, 300, 200, 400 });
@@ -85,7 +85,7 @@ namespace SorryNoti.Droid
                     }
                 }
 
-                notificationManager.Notify(1, mBuilder.Build());
+                notificationManager.Notify(0, mBuilder.Build());
             }
             catch (Exception ex)
             {
