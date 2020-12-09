@@ -30,6 +30,7 @@ namespace SorryNoti.iOS
                 UNUserNotificationCenter.Current.RequestAuthorization(
                     UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound,null);
                 UNUserNotificationCenter.Current.Delegate = new UserNotwwificationCenterDelegate();
+                notification.SoundName = "notification.caf";
             }
             else if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
             {
