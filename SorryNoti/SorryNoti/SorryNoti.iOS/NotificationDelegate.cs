@@ -46,36 +46,36 @@ namespace SorryNoti.iOS
         }
         public void RegisterNotification(string title, string body)
         {
-            var noti = new UILocalNotification
-            {
-                FireDate = NSDate.FromTimeIntervalSinceNow(2),
-                AlertTitle = title,
-                AlertBody = body,
-                ApplicationIconBadgeNumber = 1,
-                SoundName = "notification.wav"
-            };
-
-            UIApplication.SharedApplication.ScheduleLocalNotification(noti);
-
-            //UNUserNotificationCenter center = UNUserNotificationCenter.Current;
-
-            ////creat a UNMutableNotificationContent which contains your notification content
-            //UNMutableNotificationContent notificationContent = new UNMutableNotificationContent();
-
-            //notificationContent.Title = title;
-            //notificationContent.Body = body;
-
-            //notificationContent.Sound = UNNotificationSound.GetSound("notification.wav");
-
-            //UNTimeIntervalNotificationTrigger trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(1, false);
-
-            //UNNotificationRequest request = UNNotificationRequest.FromIdentifier("FiveSecond", notificationContent, trigger);
-
-
-            //center.AddNotificationRequest(request, (NSError obj) =>
+            //var noti = new UILocalNotification
             //{
+            //    FireDate = NSDate.FromTimeIntervalSinceNow(2),
+            //    AlertTitle = title,
+            //    AlertBody = body,
+            //    ApplicationIconBadgeNumber = 1,
+            //    SoundName = "notification.wav"
+            //};
 
-            //});
+            //UIApplication.SharedApplication.ScheduleLocalNotification(noti);
+
+            UNUserNotificationCenter center = UNUserNotificationCenter.Current;
+
+            //creat a UNMutableNotificationContent which contains your notification content
+            UNMutableNotificationContent notificationContent = new UNMutableNotificationContent();
+
+            notificationContent.Title = title;
+            notificationContent.Body = body;
+
+            notificationContent.Sound = UNNotificationSound.GetSound("notification.wav");
+
+            UNTimeIntervalNotificationTrigger trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(1, false);
+
+            UNNotificationRequest request = UNNotificationRequest.FromIdentifier("FiveSecond", notificationContent, trigger);
+
+
+            center.AddNotificationRequest(request, (NSError obj) =>
+            {
+
+            });
         }
     }
 }
