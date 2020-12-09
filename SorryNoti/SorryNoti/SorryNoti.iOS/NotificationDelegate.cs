@@ -55,6 +55,7 @@ namespace SorryNoti.iOS
                 SoundName = "notification.caf"
             };
             UIApplication.SharedApplication.ScheduleLocalNotification(noti);
+
             //UNUserNotificationCenter center = UNUserNotificationCenter.Current;
 
             ////creat a UNMutableNotificationContent which contains your notification content
