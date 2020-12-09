@@ -42,7 +42,7 @@ namespace SorryNoti.iOS
                 UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
             }
             LoadApplication(new App());
-            noti.SoundName = "notification.wav";
+            noti.SoundName = "police.wav";
 
             return base.FinishedLaunching(app, options);
         }
