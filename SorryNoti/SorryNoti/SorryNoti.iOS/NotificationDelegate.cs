@@ -52,7 +52,7 @@ namespace SorryNoti.iOS
                 AlertTitle = title,
                 AlertBody = body,
                 ApplicationIconBadgeNumber = 1,
-                SoundName = "/notification.aiff"
+                SoundName = "notification.aiff"
             };
             UIApplication.SharedApplication.ScheduleLocalNotification(noti);
             //UNUserNotificationCenter center = UNUserNotificationCenter.Current;
