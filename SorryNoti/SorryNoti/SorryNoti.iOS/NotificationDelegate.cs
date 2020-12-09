@@ -65,7 +65,7 @@ namespace SorryNoti.iOS
             notificationContent.Title = title;
             notificationContent.Body = body;
 
-            notificationContent.Sound = UNNotificationSound.GetSound("notification.wav");
+            notificationContent.Sound = UNNotificationSound.GetSound("fire.mp3");
 
             UNTimeIntervalNotificationTrigger trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(1, false);
 
