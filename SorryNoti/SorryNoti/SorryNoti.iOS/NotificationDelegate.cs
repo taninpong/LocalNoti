@@ -48,13 +48,15 @@ namespace SorryNoti.iOS
         {
             var noti = new UILocalNotification
             {
-                FireDate = NSDate.FromTimeIntervalSinceNow(60),
+                FireDate = NSDate.FromTimeIntervalSinceNow(2),
                 AlertTitle = title,
                 AlertBody = body,
                 ApplicationIconBadgeNumber = 1,
-                SoundName = "notification.caf"
+                SoundName = "notification.wav"
             };
+
             UIApplication.SharedApplication.ScheduleLocalNotification(noti);
+
             //UNUserNotificationCenter center = UNUserNotificationCenter.Current;
 
             ////creat a UNMutableNotificationContent which contains your notification content
@@ -63,11 +65,11 @@ namespace SorryNoti.iOS
             //notificationContent.Title = title;
             //notificationContent.Body = body;
 
-            //notificationContent.Sound = UNNotificationSound.GetSound("notification.caf");
+            //notificationContent.Sound = UNNotificationSound.GetSound("notification.wav");
 
             //UNTimeIntervalNotificationTrigger trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(1, false);
 
-            //UNNotificationRequest request = UNNotificationRequest.FromIdentifier("FiveSecond", noti, trigger);
+            //UNNotificationRequest request = UNNotificationRequest.FromIdentifier("FiveSecond", notificationContent, trigger);
 
 
             //center.AddNotificationRequest(request, (NSError obj) =>
