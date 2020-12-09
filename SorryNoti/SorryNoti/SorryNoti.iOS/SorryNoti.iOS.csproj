@@ -136,4 +136,10 @@
       <Name>SorryNoti</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\notification.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\notification.aiff" />
+  </ItemGroup>
 </Project>
