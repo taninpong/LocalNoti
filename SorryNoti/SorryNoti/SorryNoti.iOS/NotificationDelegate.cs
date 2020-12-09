@@ -48,11 +48,11 @@ namespace SorryNoti.iOS
         {
             var noti = new UILocalNotification
             {
-                FireDate = NSDate.FromTimeIntervalSinceNow(60),
+                FireDate = NSDate.FromTimeIntervalSinceNow(3),
                 AlertTitle = title,
                 AlertBody = body,
                 ApplicationIconBadgeNumber = 1,
-                SoundName = "/notification.wav"
+                SoundName = "/notification.aiff"
             };
             UIApplication.SharedApplication.ScheduleLocalNotification(noti);
             //UNUserNotificationCenter center = UNUserNotificationCenter.Current;
