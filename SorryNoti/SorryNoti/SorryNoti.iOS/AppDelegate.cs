@@ -24,7 +24,6 @@ namespace SorryNoti.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            UILocalNotification noti = new UILocalNotification();
             if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
             {
                 UNUserNotificationCenter.Current.RequestAuthorization(
@@ -42,7 +41,6 @@ namespace SorryNoti.iOS
                 UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
             }
             LoadApplication(new App());
-            noti.SoundName = "police.wav";
 
             return base.FinishedLaunching(app, options);
         }
