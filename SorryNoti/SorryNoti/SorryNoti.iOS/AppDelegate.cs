@@ -24,7 +24,7 @@ namespace SorryNoti.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))d
+            if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
             {
                 UNUserNotificationCenter.Current.RequestAuthorization(
                     UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound,
