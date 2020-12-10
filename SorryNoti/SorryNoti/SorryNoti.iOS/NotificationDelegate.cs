@@ -48,33 +48,34 @@ namespace SorryNoti.iOS
         {
             var noti = new UILocalNotification
             {
-                FireDate = NSDate.FromTimeIntervalSinceNow(60),
+                FireDate = NSDate.FromTimeIntervalSinceNow(3),
                 AlertTitle = title,
                 AlertBody = body,
                 ApplicationIconBadgeNumber = 1,
-                SoundName = "notification.caf"
+                SoundName = "police.aiff"
             };
             UIApplication.SharedApplication.ScheduleLocalNotification(noti);
-
             //UNUserNotificationCenter center = UNUserNotificationCenter.Current;
 
-            ////creat a UNMutableNotificationContent which contains your notification content
-            //UNMutableNotificationContent notificationContent = new UNMutableNotificationContent();
+            UNUserNotificationCenter center = UNUserNotificationCenter.Current;
 
-            //notificationContent.Title = title;
-            //notificationContent.Body = body;
+            //creat a UNMutableNotificationContent which contains your notification content
+            UNMutableNotificationContent notificationContent = new UNMutableNotificationContent();
 
-            //notificationContent.Sound = UNNotificationSound.GetSound("notification.caf");
+            notificationContent.Title = title;
+            notificationContent.Body = body;
 
-            //UNTimeIntervalNotificationTrigger trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(1, false);
+            notificationContent.Sound = UNNotificationSound.GetSound("notification.aiff");
 
-            //UNNotificationRequest request = UNNotificationRequest.FromIdentifier("FiveSecond", noti, trigger);
+            UNTimeIntervalNotificationTrigger trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(1, false);
+
+            UNNotificationRequest request = UNNotificationRequest.FromIdentifier("FiveSecond", notificationContent, trigger);
 
 
-            //center.AddNotificationRequest(request, (NSError obj) =>
-            //{
+            center.AddNotificationRequest(request, (NSError obj) =>
+            {
 
-            //});
+            });
         }
     }
 }
