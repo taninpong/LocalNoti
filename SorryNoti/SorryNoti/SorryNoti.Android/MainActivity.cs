@@ -33,6 +33,18 @@ namespace SorryNoti.Droid
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
-        
+        protected override void OnPause()
+        {
+            Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
+            base.OnPause(); 
+        }
+
+        protected override void OnResume()
+        {
+            Window.ClearFlags(WindowManagerFlags.Secure);
+            base.OnResume();
+        }
+
+
     }
 }
