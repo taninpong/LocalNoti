@@ -55,19 +55,17 @@ namespace SorryNoti.iOS
                 SoundName = "police.wav"
             };
             UIApplication.SharedApplication.ScheduleLocalNotification(noti);
-            //UNUserNotificationCenter center = UNUserNotificationCenter.Current;
-            //UNUserNotificationCenter center = UNUserNotificationCenter.Current;
-            ////creat a UNMutableNotificationContent which contains your notification content
-            //UNMutableNotificationContent notificationContent = new UNMutableNotificationContent();
-            //notificationContent.Title = title;
-            //notificationContent.Body = body;
-            //notificationContent.Sound = UNNotificationSound.GetSound("notification.aiff");
-            //UNTimeIntervalNotificationTrigger trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(1, false);
-            //UNNotificationRequest request = UNNotificationRequest.FromIdentifier("FiveSecond", notificationContent, trigger);
-            //center.AddNotificationRequest(request, (NSError obj) =>
-            //{
-
-            //});
+            UNUserNotificationCenter center = UNUserNotificationCenter.Current;
+            //creat a UNMutableNotificationContent which contains your notification content
+            UNMutableNotificationContent notificationContent = new UNMutableNotificationContent();
+            notificationContent.Title = title;
+            notificationContent.Body = body;
+            notificationContent.Sound = UNNotificationSound.GetCriticalSound("police.wav");
+            UNTimeIntervalNotificationTrigger trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(1, false);
+            UNNotificationRequest request = UNNotificationRequest.FromIdentifier("FiveSecond", notificationContent, trigger);
+            center.AddNotificationRequest(request, (NSError obj) =>
+            {
+            });
         }
     }
 }
