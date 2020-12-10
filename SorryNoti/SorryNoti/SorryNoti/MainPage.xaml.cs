@@ -17,7 +17,7 @@ namespace SorryNoti
 
         private async void SendNotification(object sender, EventArgs e)
         {
-            await Task.Delay(5000);
+            //await Task.Delay(5000);
             DependencyService.Get<INotification>().CreateNotification("SPTutorials", message.Text);
         }
     }
