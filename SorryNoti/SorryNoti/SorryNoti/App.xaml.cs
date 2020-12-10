@@ -24,10 +24,6 @@ namespace SorryNoti
         protected override void OnResume()
         {
         }
-        protected override void OnPause()
-        {
-            Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
-            base.OnPause();
-        }
+        
     }
 }
